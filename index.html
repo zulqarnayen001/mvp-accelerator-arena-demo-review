@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Athleadership Arena · Enterprise Demo</title>
+
+<base href="demo/">
+<link rel="preload" href="assets/Montserrat-VF.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="demo.css?v=8">
+<link rel="stylesheet" href="demo_v6.css?v=8">
+<link rel="stylesheet" href="demo_v7.css?v=8">
+<link rel="stylesheet" href="demo_v8.css?v=8">
+</head>
+<body>
+<div id="app">
+  <header class="bar top">
+    <button class="menubtn" id="btnMenu" type="button" aria-label="Menu: every step" aria-expanded="false" title="Every step"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg><span>Menu</span></button>
+    <img class="lockup" src="assets/lockup_white.png" alt="M.V.P. Accelerator, powered by Athleadership Arena">
+    <ol class="stops" id="stops" aria-label="Demo outline"></ol>
+  </header>
+
+  <main class="stage-wrap">
+    <div class="stage" id="stage">
+      <div class="srcbar" id="srcbar" hidden></div>
+      <div class="frames" id="frames"></div>
+      <div class="card-host" id="cardHost" aria-live="polite"></div>
+      <div class="card-out" id="cardOut" aria-hidden="true"></div>
+      <div class="badge" id="badge" hidden></div>
+      <div class="vote" id="vote" hidden aria-label="The room's vote"></div>
+      <div class="loading" id="loading" hidden><span></span></div>
+      <div class="chap-host" id="chapHost" hidden></div>
+      <div class="chap-edge" id="chapEdge" aria-hidden="true"></div>
+      <div class="toast8" id="toast8" aria-live="polite"></div>
+      <aside class="plan8" id="plan8" hidden aria-label="The game plan"></aside>
+      <div class="prog" id="prog" aria-hidden="true"><i></i></div>
+      <div class="blackout" id="blackout" aria-hidden="true"></div>
+    </div>
+  </main>
+
+  <footer class="bar foot">
+    <button class="nav back" id="back" aria-label="Back"><span aria-hidden="true">‹</span> Back</button>
+    <div class="where"><div class="lens" id="lens" hidden></div><span class="stopname" id="stopName"></span><span class="dots" id="dots"></span></div>
+    <div class="tools">
+      <div class="sound"><button class="tool" id="btnSound" aria-pressed="true" title="Sound on (M mutes)" aria-label="Mute sound"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4z" fill="currentColor"/><path class="w" d="M15.5 9.5a3.5 3.5 0 0 1 0 5M18 7a7 7 0 0 1 0 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path class="x" d="M16 9.5l5 5M21 9.5l-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button><input type="range" id="vol" min="0" max="1" step="0.05" value="0.9" aria-label="Volume"></div>
+      <button class="tool vbtn" id="btnVoice" type="button" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path class="w" d="M16.5 6.5a4 4 0 0 1 0 5M19 4.5a7 7 0 0 1 0 9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span class="vl">Course voice on</span></button>
+      <button class="tool" id="btnPlan" aria-pressed="false" title="The game plan (G)" aria-label="The game plan"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M9 4.5h6v2.5H9zM8.5 11h7M8.5 14.5h7M8.5 18h4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+      <button class="tool" id="btnNotes" aria-pressed="false" title="Presenter notes (N)" aria-label="Presenter notes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v12H9l-4 4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></button>
+      <button class="tool" id="btnFull" title="Full screen (F)" aria-label="Full screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+    </div>
+    <button class="nav next" id="next"><span id="nextLbl">Start</span> <span aria-hidden="true">›</span></button>
+  </footer>
+
+  <div class="menu" id="menu" hidden><nav class="mpanel" aria-label="Every step"></nav></div>
+
+  <aside class="notes" id="notes" hidden aria-label="Presenter notes">
+    <div class="notes-head"><b id="notesTitle">Presenter notes</b><span id="notesTime"></span></div>
+    <p id="notesText"></p>
+    <p class="notes-do" id="notesDo"></p>
+    <p class="notes-keys">Right arrow or clicker: next · Left: back · F: full screen · M: sound on or off · V: course voice on or off · Up and Down: volume · G: game plan · P: pointer motion · B: black screen</p>
+  </aside>
+</div>
+<script src="config.js?v=8"></script>
+<script src="stops.js?v=8"></script>
+<script src="fx.js?v=8"></script>
+<script src="cards.js?v=8"></script>
+<script src="cards_v8.js?v=8"></script>
+<script src="demo.js?v=8"></script>
+</body>
+</html>
