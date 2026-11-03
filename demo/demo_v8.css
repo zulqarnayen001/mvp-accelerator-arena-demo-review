@@ -384,6 +384,7 @@ body.still-pointer .who .tilt{transform:none}
   .chap-host.on{clip-path:none}.plx{transform:none}.who .tilt{transform:none}.toast8.on{opacity:1;transform:none}
 }
 #printPlan{display:none}
+.frames.ro::after{content:'';position:absolute;inset:0;z-index:6;cursor:default}
 .s-exp .in{justify-content:flex-start}
 .s-exp h2{font-size:50px;max-width:900px}
 .s-exp .trk{position:absolute;left:80px;top:280px;width:1120px;height:210px}
