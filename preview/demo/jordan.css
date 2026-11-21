@@ -1,0 +1,42 @@
+/* Nov 20, 2026: Jordan Ellis (Melissa's demo notes). The persona screen, the behaviors under pressure, Jordan's five
+   words, and the sneak peek with Jordan's photo (his face is on the right of it, so the words move to the left). */
+
+/* the persona: the photo on the right, the words on the left */
+.s-persona .in{padding-right:560px;justify-content:center}
+.s-persona h2{font-size:72px;margin:0 0 10px}
+.s-persona .pt8{font-size:26px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-l);margin:0 0 14px}
+.s-persona .pq8{font-size:24px;line-height:1.35;font-style:italic;color:var(--cream);margin:0 0 34px;max-width:600px}
+.s-persona .pf8{display:grid;gap:18px;padding:22px 26px;max-width:600px}
+.s-persona .pf8 span{display:block;font-size:15px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.s-persona .pf8 b{display:block;font-size:22px;line-height:1.3;color:#fff;font-weight:600}
+
+/* the behaviors under pressure: Melissa's table, one row per habit, the one we follow picked out */
+.s-press .in{padding:52px 72px 56px;justify-content:center}
+.s-press h2{font-size:46px;max-width:1100px;margin:0 0 22px}
+.s-press .ph8,.s-press .pr8{display:grid;grid-template-columns:300px 1fr 300px;column-gap:24px;align-items:center}
+.s-press .ph8{padding:0 22px 8px;font-size:15px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.s-press .prs8{display:grid;gap:9px}
+.s-press .pr8{position:relative;padding:13px 22px;border-radius:14px}
+.s-press .pr8 b{font-size:20px;line-height:1.25;color:#fff;font-weight:700}
+.s-press .pr8 span{font-size:19px;line-height:1.3;color:var(--cream)}
+.s-press .pr8 em{font-style:normal;font-size:19px;line-height:1.25;font-weight:600;color:var(--gold-l)}
+.s-press .pr8.key{background:rgba(201,164,92,.14);border-color:rgba(226,200,142,.6);box-shadow:0 0 0 1px rgba(226,200,142,.3),0 24px 60px rgba(201,164,92,.16)}
+.s-press .pk8{position:absolute;right:16px;top:-11px;font-style:normal;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  background:var(--gold);color:var(--deep);padding:3px 10px;border-radius:999px}
+
+/* the sneak peek with Jordan's photo: his face is on the right, so the words sit on the left */
+.s-teaser.j8 .in{padding-left:72px;padding-right:620px}
+
+/* Jordan's five words: a small label at the bottom right of the stage, on the steps that call for it */
+.five8{position:absolute;right:1.4cqw;bottom:1.6cqw;z-index:8;display:flex;flex-direction:column;align-items:flex-end;gap:.2cqw;
+  padding:.7cqw 1.1cqw;border-radius:.9cqw;background:rgba(12,26,44,.82);border:1px solid rgba(226,200,142,.45);
+  box-shadow:0 .8cqw 2cqw rgba(0,0,0,.35);backdrop-filter:blur(8px);pointer-events:none}
+.five8[hidden]{display:none}
+.five8 span{font-size:.78cqw;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.five8 b{font-size:1.25cqw;font-weight:700;color:#fff;white-space:nowrap}
+.five8.in{animation:five8in .7s var(--e-out,cubic-bezier(.2,.8,.2,1)) both}
+@keyframes five8in{from{opacity:0;transform:translateY(.6cqw)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.five8.in{animation:none}}
+.five8.l{right:auto;left:1.4cqw;align-items:flex-start}
+/* the report's first layer: the outcome's name, then its number on its own line */
+.ldet .dv.sm .dvn{font-size:46px;line-height:1;color:var(--gold-l);margin-left:6px}
