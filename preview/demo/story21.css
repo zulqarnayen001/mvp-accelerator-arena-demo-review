@@ -143,3 +143,35 @@
 .l1v{display:block;font-size:52px;line-height:1;font-weight:700;color:var(--gold-l);letter-spacing:-.02em}
 .l1s{display:block;font-size:16px;line-height:1.35;color:var(--cream);margin-top:6px}
 .l1n{font-size:16px;color:var(--muted);margin:10px 0 0;padding-top:10px;border-top:1px solid rgba(226,200,142,.18)}
+
+/* ---------------- the close (Melissa, Nov 21): Your Transformation Opportunity */
+.s-recap.to8 .in{padding:46px 72px 40px;justify-content:center}
+.to8 .gph{margin-bottom:18px}
+.to8 .gph h2{margin:0 0 6px;font-size:48px;max-width:none}
+.to8s{margin:0;font-size:22px;line-height:1.3;color:var(--gold-l);font-weight:600}
+.to8g{display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%}
+.to8c{position:relative;display:flex;flex-direction:column;gap:8px;padding:18px 24px;border-radius:18px;background:rgba(12,26,44,.76);border:1px solid rgba(226,200,142,.2)}
+.to8c span{font-size:15px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.to8c b{font-size:24px;line-height:1.3;color:#fff;font-weight:600}
+.to8c.pri{grid-column:1/-1;background:linear-gradient(160deg,rgba(201,164,92,.2),rgba(12,26,44,.8));border-color:rgba(226,200,142,.45)}
+.to8c.pri b{font-size:34px;line-height:1.2;padding-right:150px}
+.to8c.opp{grid-column:1/-1;border:2px solid var(--gold);background:rgba(201,164,92,.15);box-shadow:0 0 0 1px rgba(226,200,142,.25),0 18px 50px rgba(201,164,92,.18)}
+.to8c.opp b{font-size:30px;line-height:1.25;color:var(--gold-l)}
+.to8t{position:absolute;top:16px;right:18px;font-style:normal;font-size:13px;font-weight:700;letter-spacing:.08em;color:var(--gold-l);padding:4px 10px;border-radius:999px;background:rgba(201,164,92,.2)}
+.to8n{margin:12px 0 0;font-size:16px;color:var(--muted)}
+
+/* ---------------- the close (Melissa, Nov 21): The Next Move */
+.s-decide.nm8 .in{padding:60px 80px 52px;justify-content:center}
+.nm8 h2{font-size:50px;line-height:1.08;max-width:1000px;margin:0 0 14px}
+.nm8l{font-size:24px;line-height:1.3;color:var(--gold-l);font-weight:600;margin:0 0 36px}
+.nm8p{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1080px;margin:0 0 32px}
+.nm8r{position:absolute;left:10px;right:10px;top:9px;height:2px;background:linear-gradient(90deg,var(--gold),rgba(226,200,142,.25));transform-origin:left}
+.nm8s{position:relative;padding-top:36px}
+.nm8d{position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:#0C1A2C;border:3px solid var(--gold)}
+.nm8n{display:block;font-size:16px;font-weight:700;color:var(--gold);letter-spacing:.1em;margin-bottom:4px}
+.nm8s b{display:block;font-size:28px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#fff;margin-bottom:6px}
+.nm8s small{display:block;font-size:19px;line-height:1.35;color:var(--cream)}
+.nm8b{display:inline-flex;flex-direction:column;gap:6px;align-self:flex-start;padding:18px 26px;border-color:rgba(226,200,142,.5)!important}
+.nm8b span{font-size:15px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.nm8b b{font-size:26px;color:#fff}
+.nm8b small{font-size:18px;color:var(--cream)}

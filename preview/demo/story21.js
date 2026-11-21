@@ -148,88 +148,75 @@
     </div></div>`;
   };
 
-  // ---------------------------------------------------------------- the Game Plan: five cards
-  // The business value card reads the room's answer (typed at the start) and names the matching opportunity.
-  const VALUE = [
-    [/decid|decision|slow|delay|stall|wait|approv|hesitat|indecis|speed|bottleneck/i, 'Faster execution, with fewer delays and decisions made on time'],
-    [/resist|change|adopt|mindset|old way|buy-in|buy in|legacy|comfort|transform/i, 'Greater readiness for change, and faster adoption'],
-    [/burn|tired|exhaust|disengag|engag|morale|stress|well|retention|turnover|overload|capacity|fatigue/i, 'Stronger recovery and engagement, and performance that lasts'],
-    [/silo|cross-functional|cross functional|align|collaborat|handoff|hand-off|turf|priorit|conflict|depart|team/i, 'Better cross-functional alignment, fewer bottlenecks and stronger results']];
-  const valueFor = a => {
-    if (!a) return 'Stronger leadership, tied to the business numbers you already track: readiness, speed of execution, performance and engagement';
-    const m = VALUE.find(v => v[0].test(a));
-    return m ? m[1] : 'Faster, steadier execution on the challenge you named, measured against the KPIs you already track';
-  };
-  window.DEMO_VALUE_FOR = valueFor;
+  // ---------------------------------------------------------------- the close (Melissa, Nov 21 12:15 pm): the buyer becomes the focus
+  // "Your Transformation Opportunity" replaces the five-card Game Plan: their priority, what may be at risk, what we
+  // condition, and the business opportunity. The last three come from the room's answer, using the same matching as
+  // before (slow decisions, resistance to change, burnout or disengagement, silos); presented as potential
+  // connections, not a diagnosis. With no match, Melissa's own example. Print or save as PDF stays.
+  const OPP = [
+    [/decid|decision|slow|delay|stall|wait|approv|hesitat|indecis|speed|bottleneck/i, {
+      risk: 'Decision speed. Execution delays. Milestones.', cond: 'Decision-Making in Ambiguity. Agility. Alignment.',
+      opp: 'Faster decisions. Fewer delays. Milestones on time.', say: 'faster decisions, fewer delays and milestones that hold' }],
+    [/resist|change|adopt|mindset|old way|buy-in|buy in|legacy|comfort|transform/i, {
+      risk: 'Readiness. Adoption. Momentum.', cond: 'Change Agility. Decision-Making. Alignment.',
+      opp: 'Faster readiness. Stronger adoption.', say: 'faster readiness and stronger adoption' }],
+    [/burn|tired|exhaust|disengag|engag|morale|stress|well|retention|turnover|overload|capacity|fatigue/i, {
+      risk: 'Engagement. Recovery. Sustained performance.', cond: 'Recovery Capacity. Wellbeing. Leadership Clarity.',
+      opp: 'Stronger engagement. Performance that lasts.', say: 'stronger engagement and performance that lasts' }],
+    [/silo|cross-functional|cross functional|align|collaborat|handoff|hand-off|turf|priorit|conflict|depart|team/i, {
+      risk: 'Cross-functional alignment. Execution.', cond: 'Execution Alignment. Leadership Clarity. Decision-Making.',
+      opp: 'Better alignment. Fewer bottlenecks. Stronger results.', say: 'better alignment, fewer bottlenecks and stronger results' }]];
+  const OPP0 = { risk: 'Readiness. Adoption. Execution.', cond: 'Change Agility. Decision-Making. Alignment.',
+    opp: 'Faster readiness. Stronger execution.', say: 'faster readiness and stronger execution' };
+  const oppFor = a => { const m = a && OPP.find(v => v[0].test(a)); return m ? m[1] : OPP0; };
+  window.DEMO_OPP_FOR = oppFor;
+  // the notes' {value}: the business opportunity, as a phrase to say
+  window.DEMO_VALUE_FOR = a => oppFor(a).say;
 
   const OLDPLAN = window.DEMO_PLAN;
   window.DEMO_PLAN = () => {
-    const c = SC(), a = window.DEMO_ANSWER || '', L = window.DEMO_LAYER || '';
+    const a = window.DEMO_ANSWER || '', L = window.DEMO_LAYER || '', o = oppFor(a);
     const call = (OLDPLAN && OLDPLAN().find(p => p[0] === 'call')) || ['call', 'How the room voted', 'We’ll vote on this together in Lesson 4.', false];
     return [
       ['priority', 'Your priority', a || 'We’ll fill this in together.', !!a],
-      ['ambition', 'The transformation goal', `${c.ambitionTxt} a year in new ${c.focus} revenue, with ${c.atRiskTxt} of it at risk. Jordan’s goal, an example for this demo.`],
-      ['behavior', 'The behavior we conditioned', 'Decision-Making in Ambiguity: Jordan stops delaying tough decisions, in his transformation work and his 90-Day Way.'],
+      ['risk', 'What may be at risk', o.risk],
+      ['condition', 'What we condition', o.cond],
+      ['opportunity', 'The business opportunity', o.opp, !!a],
       ['measures', 'What Athleadership measures', 'The Leadership Conditioning Index, six leadership outcomes, and evidence that the change shows up at work.'],
-      ['value', 'Your business value opportunity', valueFor(a) + '.', !!a],
-      ['baseline', 'Where Jordan starts', 'His lowest score is Agility, 46 out of 100, so he works on Decision-Making in Ambiguity (sample score).'],
+      ['example', 'What you saw today', 'Jordan Ellis, an example sales leader, conditioned one behavior: making tough calls on time. His manager reinforced it, his squad put it to work, and the report showed whether it was improving.'],
       call,
-      ['rep', 'His weekly practice', 'Run real transformation decisions through the M.V.P. Decision Filter, and decide on time.'],
-      ['goal', 'His 90-Day Way', 'Personal: respond on purpose under pressure, using his five words. Professional: make every transformation decision in his area within a week.'],
-      ['coach', 'The manager’s role', 'Ask one good coaching question at every check-in, and let Jordan make the call.'],
-      ['squad', 'The squad in action', `The squad shares one goal (${squadGoal()}), practices the pitch to executives, and leaves with a decision and an owner.`],
-      ['evidence', 'How you’ll see results', 'One report that shows how leaders grew, what changed at work, and what moved in the business, each on its own.'],
       ['layer', 'What you’d most want to see', L || 'We’ll pick this together.', !!L],
-      ['next', 'The next step', 'A 60-minute Transformation-to-Execution Alignment Session, to scope a focused pilot']];
+      ['next', 'Recommended next step', 'Business Alignment & Pilot Design, with your business sponsor and talent leader: one priority, one focused cohort, measurable improvement.']];
   };
 
   C.recap = () => {
-    const P = window.DEMO_PLAN(), a = window.DEMO_ANSWER || '', L = window.DEMO_LAYER || '';
-    const get = k => P.find(p => p[0] === k);
-    const tags = { priority: a ? 'From the room' : '', ambition: 'Demo example', behavior: 'Jordan’s example',
-      measures: L ? 'You’d most want to see: ' + L : 'The same for every client', value: a ? 'From your answer' : '' };
-    const cls = { priority: ' g8c', ambition: ' g8x', behavior: ' g8x', measures: ' g8s', value: ' g8v' };
-    // the cards say it short; the printed plan has the full sentences
-    const c = SC();
-    const short = { ambition: `${c.ambitionTxt} a year in new ${c.focus} revenue: Jordan’s goal`,
-      behavior: 'Decision-Making in Ambiguity: Jordan stops delaying the tough calls, at work and in his 90-Day Way',
-      measures: 'The Leadership Conditioning Index, six leadership outcomes, and proof the change shows up at work',
-      value: a ? valueFor(a) : 'Stronger leadership, tied to the KPIs you already track: readiness, speed, performance and engagement' };
-    const rows = ['priority', 'ambition', 'behavior', 'measures', 'value'].map((k, i) => {
-      const p = get(k);
-      return `<div class="gp tin${cls[k]}${p[3] ? ' room' : ''}" ${d(.45 + i * .08)}><span>${esc(p[1])}</span><b>${esc(short[k] || p[2])}</b>${tags[k] ? `<em>${esc(tags[k])}</em>` : ''}</div>`;
-    }).join('');
-    return `<div class="card v8 s-recap gp8">${photo('plan_done_toast_duo', '55% 45%', 8)}<div class="shade sh-duo deep"></div>${grain}<div class="in">
-      <div class="gph"><div><p class="eyebrow rise" ${d(.1)}>${CO() ? 'Prepared for ' + esc(CO()) : 'What we put together today'}</p>${H('h2', 'Your game plan', .2)}</div>
-        <button type="button" class="gprint rise" ${d(1.1)} title="The full game plan on one page: print it, or save it as a PDF to send after the meeting">Print or save as PDF</button></div>
-      <div class="gps">${rows}</div>
+    const a = window.DEMO_ANSWER || '', o = oppFor(a);
+    const tag = t => `<em class="to8t">${esc(t)}</em>`;
+    return `<div class="card v8 s-recap to8">${photo('plan_done_toast_duo', '55% 45%', 8)}<div class="shade sh-duo deep"></div>${grain}<div class="in">
+      <div class="gph"><div><p class="eyebrow rise" ${d(.1)}>${CO() ? 'Prepared for ' + esc(CO()) : 'What we uncovered together'}</p>${H('h2', 'Your Transformation Opportunity', .2)}
+        <p class="to8s rise" ${d(.5)}>From leadership friction to business performance.</p></div>
+        <button type="button" class="gprint rise" ${d(1.3)} title="This page, printed or saved as a PDF to share after the meeting">Print or save as PDF</button></div>
+      <div class="to8g">
+        <div class="to8c pri tin" ${d(.55)}><span>Your priority</span><b>${esc(a || 'We’ll fill this in together.')}</b>${a ? tag('In your words') : ''}</div>
+        <div class="to8c tin" ${d(.75)}><span>What may be at risk</span><b>${esc(o.risk)}</b></div>
+        <div class="to8c tin" ${d(.85)}><span>What we condition</span><b>${esc(o.cond)}</b></div>
+        <div class="to8c opp tin" ${d(1.05)}><span>The business opportunity</span><b>${esc(o.opp)}</b></div>
+      </div>
+      <p class="to8n rise" ${d(1.4)}>${a ? 'Possible connections to the priority you named, to explore together.' : 'Possible connections, to explore together.'}</p>
     </div></div>`;
   };
 
-  // ---------------------------------------------------------------- the close: what we do, and the next step
-  // One small line drawing per sentence: seeing the gap, the rep that conditions, the bridge into the business.
-  const ICON = {
-    see: '<svg viewBox="0 0 32 32"><path d="M2 16s5.5-9 14-9 14 9 14 9-5.5 9-14 9S2 16 2 16z"/><circle cx="16" cy="16" r="4.5"/></svg>',
-    rep: '<svg viewBox="0 0 32 32"><path d="M3 18h5l3-8 5 14 4-10 2 4h7"/></svg>',
-    bridge: '<svg viewBox="0 0 32 32"><path d="M2 12h28M5 12v12M27 12v12M5 24q5.5-9 11 0q5.5-9 11 0"/></svg>' };
+  // ---------------------------------------------------------------- The Next Move: from their challenge to a focused pilot
   C.decide = () => {
-    const ask = ['With your business sponsor and your head of talent', 'We map one priority, the behaviors it needs and the leaders involved',
-      'We scope a focused pilot: the first 90 days, and how we’ll measure them']
-      .map((t, i) => `<li class="rise" ${d(1.1 + i * .12)}>${esc(t)}</li>`).join('');
-    return `<div class="card v8 s-decide dc8">${photo('tunnel_light', '70% 50%', 14)}<div class="shade sh-dec"></div>${grain}<div class="in">
-      <div class="dg8">
-        <div class="db8 glass rise dw8" ${d(.2)}>
-          <p class="eyebrow">What we do</p>
-          <div class="dwr rise" ${d(.45)}><i class="dwi">${ICON.see}</i><p class="dwl">We make the <em>leadership performance gap</em> visible.</p></div>
-          <div class="dwr rise" ${d(.65)}><i class="dwi">${ICON.rep}</i><p class="dwl">We condition leaders to access their best response <em>more quickly and consistently</em>.</p></div>
-          <div class="dwr rise" ${d(.85)}><i class="dwi">${ICON.bridge}</i><p class="dwl">We translate that conditioning into action through the <em>90-Day Way</em>, measure behavioral improvement, and connect it to business execution.</p></div>
-        </div>
-        <div class="da8 glass rise" ${d(.5)}>
-          <p class="eyebrow">The next step</p>
-          <b>A 60-minute Transformation-to-Execution Alignment Session</b>
-          <ul>${ask}</ul>
-        </div>
-      </div>
+    const steps = [['01', 'Align', 'Business priority and accountable leaders'], ['02', 'Condition', '10-week journey and 90-Day Way'],
+      ['03', 'Demonstrate', 'Behavior improvement and execution indicators']]
+      .map((t, i) => `<div class="nm8s rise" ${d(.9 + i * .2)}><i class="nm8d"></i><span class="nm8n">${t[0]}</span><b>${esc(t[1])}</b><small>${esc(t[2])}</small></div>`).join('');
+    return `<div class="card v8 s-decide nm8">${photo('tunnel_light', '70% 50%', 14)}<div class="shade sh-dec"></div>${grain}<div class="in">
+      <p class="eyebrow rise" ${d(.1)}>The Next Move</p>
+      ${H('h2', 'Turn leadership conditioning into measurable business performance.', .2)}
+      <p class="nm8l rise" ${d(.7)}>One priority. One focused cohort. Measurable improvement.</p>
+      <div class="nm8p"><i class="nm8r grow" ${d(.85)}></i>${steps}</div>
+      <div class="nm8b glass rise" ${d(1.6)}><span>Recommended next step</span><b>Business Alignment &amp; Pilot Design</b><small>Business sponsor + talent leader</small></div>
     </div></div>`;
   };
 
