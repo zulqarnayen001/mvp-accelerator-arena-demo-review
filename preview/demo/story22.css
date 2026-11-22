@@ -1,0 +1,38 @@
+/* Nov 22, 2026 (Melissa's email of Nov 22, 1:43 am). Loaded after story21.css. */
+
+/* the North Star in three clicks: parts not shown yet keep their place, invisible */
+.s-north .ns9-hold{visibility:hidden!important;animation:none!important}
+
+/* Your Transformation Opportunity: her wording; the six outcomes need a slightly smaller line */
+.to9 .to8c.cnd b{font-size:20px;line-height:1.35}
+.to9 .to8c b{font-size:23px}
+.to9 .to8c.opp b{font-size:30px}
+.to9 .to8c.pri b{font-size:34px}
+
+/* Value and ROI: From Potential to Performance */
+.s-value.v9 .in{padding-right:420px;justify-content:center}
+.v9 h2{font-size:58px;line-height:1.04;margin:0 0 12px;max-width:760px}
+.v9s{margin:0 0 30px;font-size:23px;line-height:1.35;color:var(--cream)}
+.v9p{padding:22px 26px 20px;border-color:rgba(226,200,142,.35)!important}
+.v9k{display:block;font-size:16px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.v9r{display:grid;grid-template-columns:1fr 34px 1fr 34px 1fr;align-items:stretch}
+.v9b{display:flex;flex-direction:column;gap:6px;padding:16px 18px 18px;border-radius:14px;background:rgba(12,26,44,.72);border:1px solid rgba(226,200,142,.22)}
+.v9b b{font-size:20px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-l)}
+.v9b span{font-size:21px;line-height:1.28;color:#fff}
+.v9b.roi{background:linear-gradient(135deg,#E9D29C,#C9A45C);border-color:transparent}
+.v9b.roi b,.v9b.roi span{color:#0C1A2C!important}
+.v9a{display:flex;align-items:center;justify-content:center;font-style:normal;font-size:26px;font-weight:700;color:var(--gold)}
+.v9f{margin:18px 0 0;padding-top:16px;border-top:1px solid rgba(226,200,142,.3);font-size:21px;font-weight:700;color:#fff;text-align:center}
+
+/* The Next Move: her headline, and the next step as one bar */
+.nm9 h2{font-size:46px;line-height:1.1;max-width:900px}
+.nm9 .nm8l{margin-bottom:30px}
+.nm9 .nm8p{margin-bottom:28px}
+.nm9b{display:flex;align-items:center;gap:26px;align-self:flex-start;max-width:1000px;padding:16px 28px;border-color:rgba(226,200,142,.6)!important}
+.nm9k{display:flex;flex-direction:column;gap:4px}
+.nm9k span{font-size:15px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.nm9k b{font-size:27px;color:#fff}
+.nm9v{align-self:stretch;width:2px;background:var(--gold);opacity:.7}
+.nm9w{display:flex;flex-direction:column;gap:4px}
+.nm9w b{font-size:24px;color:var(--gold-l)}
+.nm9w small{font-size:18px;color:var(--cream)}
